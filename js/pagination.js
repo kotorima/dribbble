@@ -1,25 +1,39 @@
-$('.page').click(function(){
+$(document).on("click", '.page', function(){
 	$('.page').removeClass('selected');
 	$(this).addClass('selected');
-	//loader();
 });
+
 
 let pages = $('.page');
-let quantityPages = pages.length;
-console.log(quantityPages);
+let page = $('.pages').find('.page.selected').index();
+let qualityPages = pages.length;
+console.log(qualityPages);
+if (page === 1) { 
+	$('.changeLeft').addClass('inactive');
+}
 
-$('.left').click(function(){
-	$.each(pages, function(index, value){
-		let selected = pages.filter('.selected').index();
-		if(selected === 1) {
-			pages.removeClass('selected');
-			pages.last().attr('class','selected');
-		}
-		else {
-			let page = pages.has('.selected');
-			console.log(page);
-			pages.removeClass('selected');
-			page.prev().attr('class','selected');
-		}
-	});
+
+
+$(document).on("click", '.changeLeft', function(){	
+	if(page > 1) {
+		$('.page').removeClass('selected');
+		page--;
+		$('.page').eq(page-1).addClass('selected');
+	}
 });
+
+$(document).on("click", '.changeRight', function(){
+	$('.changeLeft').removeClass('inactive');
+	if(page < qualityPages) {
+		$('.page').removeClass('selected');
+		page++;
+		$('.page').eq(page-1).addClass('selected');
+	}
+});
+
+$(document).on("click", '.disclose', function() {
+	//$()
+});
+
+
+	

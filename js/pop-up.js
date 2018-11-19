@@ -1,11 +1,11 @@
 $(".pop-up").hide();
 $(".close").hide();
-$("main img").click(function() {
+$(document).on("click", "main img",  function() {
 	$(".pop-up").show(300, 'linear');
 	$(".close").show(300, 'linear');
 	$(".pop-up").html($(this).parent().html());
 });
-$('.close').click(function() {
+$(document).on("click", ".close", function() {
 	$(".pop-up").hide(300, 'linear');
 	$(".close").hide(300, 'linear');
 });

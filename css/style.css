@@ -5,6 +5,11 @@
 	font-style: normal;
 }
 
+body {
+	display: flex;
+	flex-direction: column;
+}
+
 p, h2, a, li {
 	font-family: 'Acrom';
 	color: #303133;
@@ -80,29 +85,31 @@ nav li:hover a::after {
 main {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: flex-start;
+	margin-left: 2vw;
 }
 
-figure {
+main figure {
 	display: flex;
 	flex-direction: row;
 	margin: 1vw;
 	justify-content: center;
 }
 
-figure img{
+ main figure img{
 	width: 17vw;
 	height: 13vw;
 	border-radius: 0.5rem;
 	box-shadow: 0 0.5rem 0.8rem #E4E7ED;
 	transition: 0.2s ease;
+	object-fit: cover;
 }
 
-figure img:hover {
+main figure img:hover {
 	opacity: 0.7;
 }
 
-figcaption {
+main figcaption {
 	display: none;
 }
 
@@ -123,9 +130,6 @@ body > ul > li {
 
 body > ul > li:hover {
 	background: #ED5992;
-}
-
-body > ul > li:hover a { 
 	color: white;
 }
 
@@ -136,6 +140,35 @@ body > ul > li:hover a {
 
 .hidden {
 	display: none;
+}
+
+.inactive {
+	opacity: 0.7;
+}
+
+.inactive:hover {
+	background: #F0F2F5;
+	color: #303133;
+}
+
+img[alt='offline'] {
+	width: 20vh;
+	height: 20vh;
+}
+
+.offline {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 100vw;
+	height: 70vh;
+	margin: 0;
+}
+
+.offline p{
+	line-height: 0.5rem;
 }
 
 .close {
@@ -163,6 +196,7 @@ body > ul > li:hover a {
 	height: 30vw;
 	border-radius: 0;
 	box-shadow: 0 0 0 #E4E7ED;
+	object-fit: contain;
 }
 
 .pop-up img:hover {
@@ -183,6 +217,7 @@ h2 {
 p {
 	font-size: 0.8rem;
 	margin-bottom: 0;
+	word-wrap: break-word;
 }
 
 .loader {
@@ -259,18 +294,6 @@ p {
     transform: translate(1);
     background: #31196D; 
   }
-}
-
-.offline {
-	display: flex;
-	flex-direction: column;
-	width: 20vw; 
-}
-
-.offline img{
-	width: 15vw;
-	height: 15vw;
-	margin:  0 1rem;
 }
 
 @media (max-width: 800px) {
